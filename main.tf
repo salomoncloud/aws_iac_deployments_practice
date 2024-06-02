@@ -33,3 +33,31 @@ resource "aws_default_route_table" "iac_route_table" {
         "Name" = "IaC Route Table"
     }
 }
+# security groups
+resource "aws_default_security_group" "iac_sg" {
+    vpc_id = aws_vpc.iac_remote_vpc.id
+    # defining the rules for incoming traffic for ssh and http
+    ingress {
+        from port = 22
+        to port = 22
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    ingress {
+        from_port = 80
+        to_port = 80
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    # whats going to be allowed to leave 
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        # minus one means any protocol
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    tags {
+        "Name" = "Security group for my IaC Environment"
+    }
+}
