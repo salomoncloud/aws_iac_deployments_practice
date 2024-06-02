@@ -23,7 +23,7 @@ resource "aws_internet_gateway" "iac_igw" {
 }
 # Route Table
 resource "aws_default_route_table" "iac_route_table" {
-    aws_default_route_table_id = aws_vpc.iac_remote_vpc.aws_default_route_table_id
+    default_route_table_id = aws_vpc.iac_remote_vpc.aws_default_route_table_id
     # default route that will handle all traffic not explicitly known by the route table, in other words for the igw to the internet not local
     route {
         cidr_block = "0.0.0.0/0"
