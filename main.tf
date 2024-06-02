@@ -57,7 +57,7 @@ resource "aws_default_security_group" "iac_sg" {
         # minus one means any protocol
         cidr_blocks = ["0.0.0.0/0"]
     }
-    tags {
+    tags = {
         "Name" = "Security group for my IaC Environment"
     }
 }
