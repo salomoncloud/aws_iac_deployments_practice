@@ -1,2 +1,2 @@
 # start using this file for your variables
-vpc_name = IaC Production VPC
+vpc_name = "IaC Production VPC"
