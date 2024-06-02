@@ -38,8 +38,8 @@ resource "aws_default_security_group" "iac_sg" {
     vpc_id = aws_vpc.iac_remote_vpc.id
     # defining the rules for incoming traffic for ssh and http
     ingress {
-        from port = 22
-        to port = 22
+        from_port = 22
+        to_port = 22
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
