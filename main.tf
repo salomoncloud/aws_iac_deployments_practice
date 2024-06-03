@@ -61,6 +61,28 @@ resource "aws_default_security_group" "iac_sg" {
         "Name" = "Security group for my IaC Environment"
     }
 }
+# ssh sg
+resource "aws_default_security_group" "iac_sg_ssh" {
+    vpc_id = aws_vpc.iac_remote_vpc.id
+    # defining the rules for incoming traffic for ssh and http
+    ingress {
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    # whats going to be allowed to leave 
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        # minus one means any protocol
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    tags = {
+        "Name" = "Security group for SSH into my IaC Environment"
+    }
+}
 # s3 creation
 resource "aws_s3_bucket" "salomon-iac-bucket-practice" {
   bucket = var.bucket_name
@@ -87,3 +109,4 @@ resource "aws_s3_bucket_object_lock_configuration" "example" {
   }
 }
 */
+# aws ec2 creation with startup script
