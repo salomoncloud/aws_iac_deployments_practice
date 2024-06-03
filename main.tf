@@ -109,8 +109,8 @@ resource "aws_s3_bucket_object_lock_configuration" "example" {
   }
 }
 */
-# aws ec2 creation with startup script
-# EC2 Instance
+
+/* aws ec2 creation with startup script
 resource "aws_instance" "iac_instance" {
   ami = var.ami_id
   instance_type = "t2.micro"
@@ -132,3 +132,4 @@ resource "aws_instance" "iac_instance" {
     "Name" = "IaC EC2 Instance"
   }
 }
+*/
