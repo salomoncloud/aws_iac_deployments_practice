@@ -69,3 +69,21 @@ resource "aws_s3_bucket" "salomon-iac-bucket-practice" {
     "Name"      = "salomon-iac-bucket-practice"
   }
 }
+/* another s3 to see object lock 
+resource "aws_s3_bucket" "example" {
+  bucket = "mybucket"
+
+  object_lock_enabled = true
+}
+
+resource "aws_s3_bucket_object_lock_configuration" "example" {
+  bucket = aws_s3_bucket.example.bucket
+
+  rule {
+    default_retention {
+      mode = "COMPLIANCE"
+      days = 5
+    }
+  }
+}
+*/
