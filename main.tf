@@ -61,3 +61,11 @@ resource "aws_default_security_group" "iac_sg" {
         "Name" = "Security group for my IaC Environment"
     }
 }
+# s3 creation
+resource "aws_s3_bucket" "salomon-iac-bucket-practice" {
+  bucket = "salomon-iac-bucket-practice"
+
+  tags = {
+    "Name"      = "salomon-iac-bucket-practice"
+  }
+}
