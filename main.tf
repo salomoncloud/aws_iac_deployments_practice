@@ -66,7 +66,7 @@ resource "aws_s3_bucket" "salomon-iac-bucket-practice" {
   bucket = var.bucket_name
 
   tags = {
-    "Name"      = "salomon-iac-bucket-practice"
+    "Name"      = "${var.bucket_name}"
   }
 }
 /* another s3 to see object lock 
