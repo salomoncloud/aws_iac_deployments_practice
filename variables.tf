@@ -28,3 +28,7 @@ variable "aws_region" {
 
 variable "vpc_name" {
 }
+
+variable "bucket_name" {
+    type = string
+}
