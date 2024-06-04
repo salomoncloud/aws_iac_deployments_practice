@@ -35,3 +35,8 @@ variable "bucket_name" {
 variable "ami_id" {
     type = string
 }
+variable "bucket_names" {
+  description = "List of bucket names"
+  type        = list(string)
+  default     = ["salomonlubin97-1", "salomonlubin97-2", "salomonlubin97-3", "salomonlubin97-4", "salomonlubin97-5"]
+}

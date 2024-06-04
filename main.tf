@@ -91,6 +91,37 @@ resource "aws_s3_bucket" "salomon-iac-bucket-practice" {
     "Name"      = "${var.bucket_name}"
   }
 }
+# s3 creation using count function 
+resource "aws_s3_bucket" "salomonlubin97" {
+  count  = length(var.bucket_names)
+  bucket = var.bucket_names[count.index]
+}
+
+resource "aws_s3_bucket_acl" "salomonlubin97_acl" {
+  count  = length(var.bucket_names)
+  bucket = aws_s3_bucket.salomonlubin97[count.index].id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_versioning" "versioning_salomonlubin97" {
+  count  = length(var.bucket_names)
+  bucket = aws_s3_bucket.salomonlubin97[count.index].id
+  versioning_configuration {
+    status = "Disabled"
+  }
+}
+
+resource "aws_s3_bucket_object_lock_configuration" "example" {
+  count  = length(var.bucket_names)
+  bucket = aws_s3_bucket.salomonlubin97[count.index].bucket
+
+  rule {
+    default_retention {
+      mode = "COMPLIANCE"
+      days = 5
+    }
+  }
+}
 /* another s3 to see object lock 
 resource "aws_s3_bucket" "example" {
   bucket = "mybucket"
