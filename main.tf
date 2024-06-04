@@ -92,6 +92,7 @@ resource "aws_s3_bucket" "salomon-iac-bucket-practice" {
   }
 }
 # s3 creation using count function 
+/*
 resource "aws_s3_bucket" "salomonlubin97" {
   count  = length(var.bucket_names)
   bucket = var.bucket_names[count.index]
@@ -122,6 +123,7 @@ resource "aws_s3_bucket_object_lock_configuration" "example" {
     }
   }
 }
+*/
 /* another s3 to see object lock 
 resource "aws_s3_bucket" "example" {
   bucket = "mybucket"
