@@ -111,7 +111,7 @@ resource "aws_s3_bucket_object_lock_configuration" "example" {
 */
 
 /* aws ec2 creation with startup script
-resource "aws_instance" "iac_instance" {
+resource "aws_instance" "iac_vm_instance" {
   ami = var.ami_id
   instance_type = "t2.micro"
   subnet_id = aws_subnet.iac_web.id
