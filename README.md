@@ -7,6 +7,4 @@ I have now successfully added my keys needed to use AWS remotely, and I have suc
 -
 I have successfully deployed an envrionment. Now I will optimize my code and try to deploy more applications.
 -
-was having trouble tonight practicing deploying an instance with a start up script via iac, will try again later.
--
-gonna try my hand at more complicated start up scripts.
+Successfully deployed s3 buckets as well as instances with start up scripts. 
