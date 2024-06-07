@@ -8,3 +8,6 @@ I have now successfully added my keys needed to use AWS remotely, and I have suc
 I have successfully deployed an envrionment. Now I will optimize my code and try to deploy more applications.
 -
 Successfully deployed s3 buckets as well as instances with start up scripts. 
+-
+deleted my pem key from here for best practice (not to have it on the internet, but I will create another one and store it better), only used it to launch my vm as a test
+-
