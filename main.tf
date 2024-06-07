@@ -151,7 +151,7 @@ resource "aws_instance" "iac_vm_instance" {
   subnet_id = aws_subnet.iac_web.id
   security_groups = [aws_default_security_group.iac_sg.name]
   associate_public_ip_address = true
-
+  user_data              = file("${path.module}/app1-install.sh")
   tags = {
     "Name" = "${var.ec2_name}"
   }
