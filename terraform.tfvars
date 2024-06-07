@@ -2,3 +2,4 @@
 vpc_name = "IaC Production VPC"
 bucket_name = "salomon-iac-bucket-practice"
 ami_id = "ami-00beae93a2d981137"
+ec2_name = "My IaC VM"

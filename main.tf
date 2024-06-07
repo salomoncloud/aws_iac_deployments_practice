@@ -143,26 +143,16 @@ resource "aws_s3_bucket_object_lock_configuration" "example" {
 }
 */
 
-/* aws ec2 creation with startup script
+# aws ec2 creation with startup script
 resource "aws_instance" "iac_vm_instance" {
   ami = var.ami_id
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
+  key_name = "iac_key_pair"
   subnet_id = aws_subnet.iac_web.id
   security_groups = [aws_default_security_group.iac_sg.name]
-
-  user_data = <<-EOL
-  #!/bin/bash
-  # User data for new EC2 instances
-  # install httpd (Linux 2 version)
-  yum update -y
-  yum install -y httpd
-  systemctl start httpd
-  systemctl enable httpd
-  echo "<h1>Hello World!  This is $(hostname -f)</h1>" > /var/www/html/index.html
-  EOL
+  associate_public_ip_address = true
 
   tags = {
-    "Name" = "IaC EC2 Instance"
+    "Name" = "${var.ec2_name}"
   }
 }
-*/

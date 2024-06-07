@@ -40,3 +40,6 @@ variable "bucket_names" {
   type        = list(string)
   default     = ["salomonlubin97-1", "salomonlubin97-2", "salomonlubin97-3", "salomonlubin97-4", "salomonlubin97-5"]
 }
+variable "ec2_name" {
+    type = string
+}
